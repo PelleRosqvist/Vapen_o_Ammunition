@@ -1,0 +1,58 @@
+<form class="swam-form">
+  <fieldset>
+    <legend>{{localize "SWAM.CurrentStatus"}}</legend>
+    <p class="swam-ammo-count"><strong>{{cfg.current}} / {{cfg.max}}</strong> {{localize "SWAM.Rounds"}}</p>
+    {{#if isEditable}}
+    <button type="button" data-action="fire-one" {{#unless canFire}}disabled{{/unless}}>
+      <i class="fas fa-crosshairs"></i> {{localize "SWAM.FireOne"}}
+    </button>
+    {{/if}}
+  </fieldset>
+
+  <fieldset>
+    <legend>{{localize "SWAM.Reload"}}</legend>
+    {{#if isMagazine}}
+      <button type="button" data-action="reload-magazine" {{#unless canMagazineReload}}disabled{{/unless}}>
+        <i class="fas fa-sync"></i> {{localize "SWAM.ReloadMagazine"}} ({{magazineCount}})
+      </button>
+    {{/if}}
+    {{#if isRevolver}}
+      <button type="button" data-action="reload-speedloader" {{#unless canSpeedloaderReload}}disabled{{/unless}}>
+        <i class="fas fa-sync"></i> {{localize "SWAM.ReloadSpeedloader"}} ({{speedloaderCount}})
+      </button>
+    {{/if}}
+    {{#if isSingle}}
+      <button type="button" data-action="reload-single" {{#unless canSingleReload}}disabled{{/unless}}>
+        <i class="fas fa-plus"></i> {{localize "SWAM.ReloadSingle"}} ({{looseCount}})
+      </button>
+    {{/if}}
+    <p class="swam-hint">{{localize "SWAM.ActionCostNote"}}</p>
+  </fieldset>
+
+  {{#if isEditable}}
+  <fieldset>
+    <legend>{{localize "SWAM.Setup"}}</legend>
+    <div class="form-group">
+      <label>{{localize "SWAM.Mode"}}</label>
+      <select name="mode">
+        <option value="magazine" {{#if isMagazine}}selected{{/if}}>{{modes.magazine}}</option>
+        <option value="single" {{#if (eq cfg.mode "single")}}selected{{/if}}>{{modes.single}}</option>
+        <option value="revolver" {{#if isRevolver}}selected{{/if}}>{{modes.revolver}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>{{localize "SWAM.MaxCapacity"}}</label>
+      <input type="number" name="max" value="{{cfg.max}}" min="0"/>
+    </div>
+    <div class="form-group">
+      <label>{{localize "SWAM.CurrentRounds"}}</label>
+      <input type="number" name="current" value="{{cfg.current}}" min="0"/>
+    </div>
+    <div class="form-group">
+      <label>{{localize "SWAM.Caliber"}}</label>
+      <input type="text" name="caliber" value="{{cfg.caliber}}" placeholder=".45 Long Colt"/>
+    </div>
+    <button type="button" data-action="save-config">{{localize "SWAM.SaveSetup"}}</button>
+  </fieldset>
+  {{/if}}
+</form>

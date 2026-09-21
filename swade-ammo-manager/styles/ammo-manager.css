@@ -1,0 +1,24 @@
+.swam-app fieldset {
+  margin-bottom: 8px;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+.swam-app .swam-ammo-count {
+  font-size: 1.1em;
+  margin: 4px 0 8px 0;
+}
+.swam-app button {
+  margin: 2px 0;
+  width: 100%;
+}
+.swam-hint {
+  font-size: 0.85em;
+  font-style: italic;
+  opacity: 0.8;
+}
+.swam-chat .swam-action-cost {
+  font-size: 0.85em;
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 2px;
+}
