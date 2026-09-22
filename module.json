@@ -4,7 +4,7 @@
   "description": "Ammunitionshantering för SWADE: magasin, snabbladdare, enstaka patroner och omladdning som förbrukar en handling.",
   "version": "0.1.0",
   "authors": [{ "name": "Pelle" }],
-  "compatibility": { "minimum": "11", "verified": "13", "maximum": "13" },
+  "compatibility": { "minimum": "11", "verified": "13", "maximum": "14" },
   "relationships": {
     "systems": [{ "id": "swade", "type": "system", "compatibility": { "minimum": "3" } }]
   },
